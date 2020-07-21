@@ -8,12 +8,12 @@ Write a function named greeting that takes in a string and returns the string in
 Then, write a function named speaker that takes in a string and a callback function. The speaker function should return the string in all uppercase letters only by invoking the callback.
 ------------------------------------------------------------------------------------------------ */
 
-const greeting = (word) => {
-  // Solution code here...
+const greeting = (message) => {
+  return message.toUpperCase();
 };
 
 const speaker = (message, callback) => {
-  // Solution code here...
+  return callback(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,11 +33,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for(let i = 0; i < times; i++){
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,7 +62,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let result = [];
+  availableItems.forEach(function(item){
+    if(item.available === true){
+        result.push(item.name);
+    }
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,7 +86,22 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+ let result  =[];
+ arr.forEach(function(number){
+   if (number % 3 === 0 && number % 5 !== 0){
+     result.push('Fizz');
+   }
+    else if (number % 5 === 0 && number % 3 !== 0){
+    result.push('Buzz');
+   }
+   else if (number % 3 === 0 && number % 5 === 0){
+    result.push('Fizz Buzz');
+   }
+   else {
+     result.push (number);
+   }
+ });
+ return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
