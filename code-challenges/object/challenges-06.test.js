@@ -69,9 +69,17 @@ let $ = createSnippetWithJQuery(`
 </script>
 `);
 
+
 const templatingWithMustache = () => {
-  // Solution code here...
+    const templateHtml = $('#template').html();
+    const templates = [];
+    characters.forEach( character => {
+        const renderedHtml = Mustache.render(templateHtml, character);
+        templates.push(renderedHtml);
+    });
+    return templates
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -86,7 +94,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+    return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,7 +105,9 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  arr.forEach(Object => {
+      houses.push(Object.house);
+  });
   return houses;
 };
 
@@ -114,8 +124,15 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+    let testArray = []
+   arr.forEach(Object => {
+       console.log(Object.children);
+       if(Object.children.length > 0){
+           testArray.push(true);
+       } else testArray.push(false);
+    
+   });
+   console.log(testArray);
 };
 
 /* ------------------------------------------------------------------------------------------------
