@@ -165,12 +165,13 @@ const currentEvents = {
 
 
 function getCurrentEvents(request, response) {
-    response.status(200).send(mapCurrentEvents);
+    response.status(200).send('test');
 }
 
 const mapCurrentEvents = (obj) => {
     return obj.news.map(event => new Event(event));
 }
+
 
 function Event(obj) {
     this.author = obj.news.author;
